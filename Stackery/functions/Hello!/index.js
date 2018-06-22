@@ -22,13 +22,13 @@ module.exports = async request => {
   res.on('data', (chunk) => { rawData += chunk; });
   res.on('end', () => {
     try {
-      console.log(rawData);
-      fullText = rawData;
+       fullText = rawData;
     } catch (e) {
       console.error(e.message);
     }
-    let fullTextArray = fullText.split('%')
-    let responseLine = fullTextArray[Math.floor(Math.random()*fullTextArray.length)]
+    let fullTextArray = fullText.split('%');
+    let responseLine = fullTextArray[Math.floor(Math.random()*fullTextArray.length)];
+    console.log(responseLine);
 
       // Build an HTTP response.
     let response = {
