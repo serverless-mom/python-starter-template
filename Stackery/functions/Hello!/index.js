@@ -26,7 +26,7 @@ module.exports = async request => {
     } catch (e) {
       console.error(e.message);
     }
-    let fullTextArray = fullText.split('%');
+    let fullTextArray = fullText.toString('utf8').split('%');
     let responseLine = fullTextArray[Math.floor(Math.random()*fullTextArray.length)];
     console.log(responseLine);
 
