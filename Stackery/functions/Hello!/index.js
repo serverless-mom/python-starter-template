@@ -34,16 +34,14 @@ module.exports = async request => {
     let response = {
       statusCode: 200,
       headers: {
-        "Content-Type": "text/plain"
+        "Content-Type": "text/html"
       },
-      body: responseLine
+      body: `<h2>${responseLine}</h2>`
     };
     return response;
 
   
   });
-}).on('error', (e) => {
-  console.error(`Got error: ${e.message}`);
-});
+})
 
 };
