@@ -27,7 +27,8 @@ module.exports = async request => {
     } catch (e) {
       console.error(e.message);
     }
-    responseLine = fullText.split('\n')[Math.floor(Math.random()*items.length)]
+    let fullTextArray = fullText.split('%')
+    let responseLine = fullTextArray[Math.floor(Math.random()*fullTextArray.length)]
 
       // Build an HTTP response.
     let response = {
