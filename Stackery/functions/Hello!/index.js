@@ -1,7 +1,7 @@
 var http = require('http')
 module.exports = async request => {
   // Log the request to the console.
-  http.get('http://nodejs.org/dist/index.json', (res) => {
+  http.get('https://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
 
@@ -9,9 +9,9 @@ module.exports = async request => {
   if (statusCode !== 200) {
     error = new Error('Request Failed.\n' +
                       `Status Code: ${statusCode}`);
-  } else if (!/^application\/json/.test(contentType)) {
+  } else if (!/^text\/plain/.test(contentType)) {
     error = new Error('Invalid content-type.\n' +
-                      `Expected application/json but received ${contentType}`);
+                      `Expected text/plain but received ${contentType}`);
   }
   if (error) {
     console.error(error.message);
