@@ -3,31 +3,16 @@
     {
       "id": "2d11d47d",
       "type": "function",
+      "x": 400,
+      "y": 185,
       "name": "Hello!",
       "outputs": 1,
       "memorySize": 128,
       "timeout": 30,
       "runtime": "nodejs8",
       "location": "inline",
-      "noerr": true,
-      "x": 400,
-      "y": 185,
-      "wires": [
-        []
-      ]
-    },
-    {
-      "id": "5a160dc9",
-      "type": "function",
-      "name": "Echo",
-      "outputs": 1,
-      "memorySize": 128,
-      "timeout": 30,
-      "runtime": "nodejs8",
-      "location": "inline",
-      "noerr": true,
-      "x": 400,
-      "y": 285,
+      "envVars": {},
+      "entryPoint": "",
       "wires": [
         []
       ]
@@ -46,25 +31,11 @@
       "x": 185,
       "y": 185,
       "name": "",
-      "path": "/",
+      "path": "/fortune",
       "method": "GET",
       "wires": [
         [
           "2d11d47d"
-        ]
-      ]
-    },
-    {
-      "id": "fdd0096",
-      "type": "restApiEndpoint",
-      "x": 195,
-      "y": 285,
-      "name": "",
-      "path": "/{message}",
-      "method": "GET",
-      "wires": [
-        [
-          "5a160dc9"
         ]
       ]
     },
