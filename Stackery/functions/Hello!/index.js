@@ -1,7 +1,8 @@
 var http = require('http')
+let responseBody = ''
 module.exports = async request => {
   // Log the request to the console.
-  http.get('https://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
+  http.get('http://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
 
@@ -27,6 +28,7 @@ module.exports = async request => {
     try {
       const parsedData = JSON.parse(rawData);
       console.log(parsedData);
+      responseBody = parsedData;
     } catch (e) {
       console.error(e.message);
     }
@@ -37,14 +39,6 @@ module.exports = async request => {
   console.log('Request:');
   console.dir(request);
 
-  let responseBody = `
-    <html>
-      <body>
-        <h4>Woot!</h4>
-        <p>Try this: <a href="hi">hi</a>. It will echo "hi" back to you!</p>
-      </body>
-    </html>
-  `;
 
   // Build an HTTP response.
   let response = {
