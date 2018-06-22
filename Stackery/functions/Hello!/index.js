@@ -1,8 +1,9 @@
 var http = require('http')
 let fullText = ''
+let response = {}
 module.exports = async request => {
   // Log the request to the console.
-  http.get('http://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
+  await http.get('http://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
   const { statusCode } = res;
 
   let error;
@@ -31,7 +32,7 @@ module.exports = async request => {
     console.log(responseLine);
 
       // Build an HTTP response.
-    let response = {
+    response = {
       statusCode: 200,
       headers: {
         "Content-Type": "text/plain"
@@ -39,12 +40,10 @@ module.exports = async request => {
       body: responseLine
     };
   
-    return response;
   });
 }).on('error', (e) => {
   console.error(`Got error: ${e.message}`);
 });
-  console.log('Request:');
-  console.dir(request);
+return response;
 
 };
