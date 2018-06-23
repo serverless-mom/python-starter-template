@@ -9,7 +9,7 @@
       "outputs": 1,
       "memorySize": 128,
       "timeout": 30,
-      "runtime": "python",
+      "runtime": "python2.7",
       "location": "inline",
       "envVars": {},
       "entryPoint": "",
