@@ -1,10 +1,16 @@
-def handler(message, context):
-    print(message)
-
-    return {
-    "Content-Type": "text/html",
-    "body": "<h1>Hello, the current time is 15:40:19.009371</h1>",
-    "statusCode": 200
-}
+import json
+import datetime
 
 
+def endpoint(event, context):
+    current_time = datetime.datetime.now().time()
+    body = {
+        "message": "Hello, the current time is " + str(current_time)
+    }
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+
+    return response
