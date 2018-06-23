@@ -2,7 +2,9 @@ var rp = require('request-promise-native');
 
 
 var getData = async request =>{  // Log the request to the console.
-    let responseMessage = await rp('http://www.google.com')
+    let res = await rp('https://s3.amazonaws.com/unix-fortune/fortunes.txt')
+    res.responseType = ('text')
+    let responseMessage = res.split('%').join(`<p>`)
     let response = {
       statusCode: 200,
       headers: {
