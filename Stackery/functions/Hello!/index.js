@@ -1,7 +1,7 @@
-var rp = require('request-promise');
+var rp = require('request-promise-native');
 
 module.exports = async request => {  
-  let responseMessage = await rp('http://www.google.com')
+  let responseMessage = await rp('https://s3.amazonaws.com/unix-fortune/fortunes.txt')
   let response = {
     statusCode: 200,
     headers: {
