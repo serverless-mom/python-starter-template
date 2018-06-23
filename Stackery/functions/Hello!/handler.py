@@ -8,4 +8,3 @@ def handler(message, context):
 }
 
 
-handler('hello','david')
