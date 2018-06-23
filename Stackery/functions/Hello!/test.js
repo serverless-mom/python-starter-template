@@ -1,6 +1,8 @@
 var http = require('http')
 let fullText = ''
-module.exports = async request => {  return http.get('http://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
+
+var getData = async request =>{  // Log the request to the console.
+  return http.get('http://s3.amazonaws.com/unix-fortune/fortunes.txt', (res) => {
   const { statusCode } = res;
 
   let error;
@@ -43,4 +45,6 @@ module.exports = async request => {  return http.get('http://s3.amazonaws.com/un
 }).on('error', (e) => {
   console.error(`Got error: ${e.message}`);
 });
-};
+}
+
+console.log(getData({}))
