@@ -1,4 +1,3 @@
-import json
 import datetime
 
 
@@ -10,7 +9,7 @@ def endpoint(event, context):
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
+        "body": body
     }
 
     return response
